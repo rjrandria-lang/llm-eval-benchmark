@@ -57,4 +57,5 @@ We welcome contributions to enhance the benchmark framework. Please read our CON
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
-For inquiries or feedback, please reach out to the project maintainer at [maintainer@example.com].
+For inquiries or feedback, please reach out to the project maintainer at rojoni.randria@gmail.com
+.
