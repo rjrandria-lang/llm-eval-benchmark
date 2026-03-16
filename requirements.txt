@@ -1,0 +1,10 @@
+# Python Dependencies
+
+numpy
+scipy
+pandas
+scikit-learn
+tensorflow
+flask
+pytest
+requests
