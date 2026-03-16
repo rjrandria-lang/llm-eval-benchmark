@@ -1,7 +1,7 @@
 # LLM Eval Benchmark
 
 ## Overview
-The LLM Eval Benchmark repository is designed to evaluate the performance of various Language Models (LLMs) across different tasks and datasets. This project aims to provide a standardized framework for benchmarking LLMs, enabling researchers and practitioners to compare results effectively.
+The LLM Eval Benchmark project is designed to evaluate the performance of various Language Models (LLMs) across different tasks and datasets. This project aims to provide a standardized framework for benchmarking LLMs, enabling researchers and practitioners to compare results effectively.
 
 ## Table of Contents
 1. [Installation](#installation)
