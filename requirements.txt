@@ -1,10 +1,11 @@
-# Python Dependencies
+# LLM Eval Benchmark — Python Dependencies
+# The core evaluation engine has no required runtime dependencies.
+# The packages below are for testing and optional extensions.
 
-numpy
-scipy
-pandas
-scikit-learn
-tensorflow
-flask
-pytest
-requests
+# Testing
+pytest>=7.0
+
+# Optional: enhanced text similarity (not required for core scoring)
+# Uncomment if you want to extend scoring.py with embedding-based metrics:
+# sentence-transformers>=2.2
+# numpy>=1.24

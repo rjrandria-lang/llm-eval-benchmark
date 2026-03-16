@@ -1,1 +1,643 @@
-{"evaluation_results": [{"model": "GPT-4", "score": 95, "timestamp": "2026-03-16T04:40:45Z"}, {"model": "GPT-3.5", "score": 90, "timestamp": "2026-03-16T04:40:45Z"}]}
+{
+  "metadata": {
+    "model": "simulated-model-v1",
+    "timestamp": "2026-03-16T05:00:39.961579+00:00",
+    "total_tasks": 40,
+    "benchmark_version": "1.0.0"
+  },
+  "overall_score": 43.16,
+  "category_summary": {
+    "reasoning": {
+      "task_count": 8,
+      "average_composite": 35.14,
+      "min_composite": 29.85,
+      "max_composite": 47.3
+    },
+    "coding": {
+      "task_count": 8,
+      "average_composite": 47.52,
+      "min_composite": 30.07,
+      "max_composite": 63.68
+    },
+    "factuality": {
+      "task_count": 8,
+      "average_composite": 39.18,
+      "min_composite": 33.79,
+      "max_composite": 44.2
+    },
+    "summarization": {
+      "task_count": 8,
+      "average_composite": 36.92,
+      "min_composite": 30.66,
+      "max_composite": 39.67
+    },
+    "instruction_following": {
+      "task_count": 8,
+      "average_composite": 57.03,
+      "min_composite": 34.3,
+      "max_composite": 81.0
+    }
+  },
+  "task_results": [
+    {
+      "task_id": "reasoning_001",
+      "category": "reasoning",
+      "difficulty": "easy",
+      "scores": {
+        "correctness": 36.97,
+        "reasoning": 30.71,
+        "clarity": 65,
+        "instruction_following": 60,
+        "hallucination_risk": 35.29,
+        "composite": 47.3
+      },
+      "response_length": 13,
+      "ideal_length": 21
+    },
+    {
+      "task_id": "reasoning_002",
+      "category": "reasoning",
+      "difficulty": "medium",
+      "scores": {
+        "correctness": 10.52,
+        "reasoning": 15.47,
+        "clarity": 51.5,
+        "instruction_following": 60,
+        "hallucination_risk": 50.53,
+        "composite": 31.45
+      },
+      "response_length": 8,
+      "ideal_length": 47
+    },
+    {
+      "task_id": "reasoning_003",
+      "category": "reasoning",
+      "difficulty": "medium",
+      "scores": {
+        "correctness": 21.71,
+        "reasoning": 16.67,
+        "clarity": 35,
+        "instruction_following": 40,
+        "hallucination_risk": 43.33,
+        "composite": 29.85
+      },
+      "response_length": 4,
+      "ideal_length": 32
+    },
+    {
+      "task_id": "reasoning_004",
+      "category": "reasoning",
+      "difficulty": "medium",
+      "scores": {
+        "correctness": 8.57,
+        "reasoning": 12.0,
+        "clarity": 65,
+        "instruction_following": 60,
+        "hallucination_risk": 54.0,
+        "composite": 31.75
+      },
+      "response_length": 11,
+      "ideal_length": 40
+    },
+    {
+      "task_id": "reasoning_005",
+      "category": "reasoning",
+      "difficulty": "hard",
+      "scores": {
+        "correctness": 15.19,
+        "reasoning": 10.91,
+        "clarity": 65,
+        "instruction_following": 60,
+        "hallucination_risk": 49.09,
+        "composite": 34.34
+      },
+      "response_length": 14,
+      "ideal_length": 48
+    },
+    {
+      "task_id": "reasoning_006",
+      "category": "reasoning",
+      "difficulty": "hard",
+      "scores": {
+        "correctness": 26.63,
+        "reasoning": 20.87,
+        "clarity": 53.0,
+        "instruction_following": 60,
+        "hallucination_risk": 39.13,
+        "composite": 39.53
+      },
+      "response_length": 9,
+      "ideal_length": 35
+    },
+    {
+      "task_id": "reasoning_007",
+      "category": "reasoning",
+      "difficulty": "hard",
+      "scores": {
+        "correctness": 12.77,
+        "reasoning": 10.0,
+        "clarity": 48.5,
+        "instruction_following": 60,
+        "hallucination_risk": 50.0,
+        "composite": 30.74
+      },
+      "response_length": 6,
+      "ideal_length": 49
+    },
+    {
+      "task_id": "reasoning_008",
+      "category": "reasoning",
+      "difficulty": "medium",
+      "scores": {
+        "correctness": 14.91,
+        "reasoning": 19.2,
+        "clarity": 65,
+        "instruction_following": 60,
+        "hallucination_risk": 46.8,
+        "composite": 36.13
+      },
+      "response_length": 17,
+      "ideal_length": 54
+    },
+    {
+      "task_id": "coding_001",
+      "category": "coding",
+      "difficulty": "easy",
+      "scores": {
+        "correctness": 40.07,
+        "reasoning": 26.25,
+        "clarity": 46.0,
+        "instruction_following": 60,
+        "hallucination_risk": 33.75,
+        "composite": 44.8
+      },
+      "response_length": 13,
+      "ideal_length": 39
+    },
+    {
+      "task_id": "coding_002",
+      "category": "coding",
+      "difficulty": "easy",
+      "scores": {
+        "correctness": 59.69,
+        "reasoning": 36.92,
+        "clarity": 60,
+        "instruction_following": 60,
+        "hallucination_risk": 23.08,
+        "composite": 56.97
+      },
+      "response_length": 44,
+      "ideal_length": 61
+    },
+    {
+      "task_id": "coding_003",
+      "category": "coding",
+      "difficulty": "medium",
+      "scores": {
+        "correctness": 55.25,
+        "reasoning": 39.0,
+        "clarity": 48.0,
+        "instruction_following": 60,
+        "hallucination_risk": 21.0,
+        "composite": 54.24
+      },
+      "response_length": 17,
+      "ideal_length": 28
+    },
+    {
+      "task_id": "coding_004",
+      "category": "coding",
+      "difficulty": "medium",
+      "scores": {
+        "correctness": 29.45,
+        "reasoning": 24.49,
+        "clarity": 62.75,
+        "instruction_following": 60,
+        "hallucination_risk": 35.51,
+        "composite": 43.07
+      },
+      "response_length": 22,
+      "ideal_length": 56
+    },
+    {
+      "task_id": "coding_005",
+      "category": "coding",
+      "difficulty": "medium",
+      "scores": {
+        "correctness": 41.19,
+        "reasoning": 29.09,
+        "clarity": 45,
+        "instruction_following": 60,
+        "hallucination_risk": 30.91,
+        "composite": 45.89
+      },
+      "response_length": 18,
+      "ideal_length": 46
+    },
+    {
+      "task_id": "coding_006",
+      "category": "coding",
+      "difficulty": "hard",
+      "scores": {
+        "correctness": 70.33,
+        "reasoning": 46.88,
+        "clarity": 60,
+        "instruction_following": 60,
+        "hallucination_risk": 13.12,
+        "composite": 63.68
+      },
+      "response_length": 45,
+      "ideal_length": 61
+    },
+    {
+      "task_id": "coding_007",
+      "category": "coding",
+      "difficulty": "easy",
+      "scores": {
+        "correctness": 28.74,
+        "reasoning": 18.62,
+        "clarity": 65,
+        "instruction_following": 60,
+        "hallucination_risk": 41.38,
+        "composite": 41.4
+      },
+      "response_length": 18,
+      "ideal_length": 45
+    },
+    {
+      "task_id": "coding_008",
+      "category": "coding",
+      "difficulty": "medium",
+      "scores": {
+        "correctness": 9.35,
+        "reasoning": 12.0,
+        "clarity": 48.0,
+        "instruction_following": 60,
+        "hallucination_risk": 48.0,
+        "composite": 30.07
+      },
+      "response_length": 17,
+      "ideal_length": 70
+    },
+    {
+      "task_id": "factuality_001",
+      "category": "factuality",
+      "difficulty": "easy",
+      "scores": {
+        "correctness": 26.37,
+        "reasoning": 17.56,
+        "clarity": 65,
+        "instruction_following": 60,
+        "hallucination_risk": 42.44,
+        "composite": 40.25
+      },
+      "response_length": 10,
+      "ideal_length": 48
+    },
+    {
+      "task_id": "factuality_002",
+      "category": "factuality",
+      "difficulty": "easy",
+      "scores": {
+        "correctness": 33.22,
+        "reasoning": 22.76,
+        "clarity": 65,
+        "instruction_following": 60,
+        "hallucination_risk": 37.24,
+        "composite": 44.2
+      },
+      "response_length": 12,
+      "ideal_length": 34
+    },
+    {
+      "task_id": "factuality_003",
+      "category": "factuality",
+      "difficulty": "easy",
+      "scores": {
+        "correctness": 26.48,
+        "reasoning": 19.53,
+        "clarity": 65,
+        "instruction_following": 60,
+        "hallucination_risk": 40.47,
+        "composite": 40.88
+      },
+      "response_length": 13,
+      "ideal_length": 61
+    },
+    {
+      "task_id": "factuality_004",
+      "category": "factuality",
+      "difficulty": "medium",
+      "scores": {
+        "correctness": 19.93,
+        "reasoning": 14.72,
+        "clarity": 80,
+        "instruction_following": 60,
+        "hallucination_risk": 45.28,
+        "composite": 39.39
+      },
+      "response_length": 20,
+      "ideal_length": 66
+    },
+    {
+      "task_id": "factuality_005",
+      "category": "factuality",
+      "difficulty": "easy",
+      "scores": {
+        "correctness": 18.8,
+        "reasoning": 12.35,
+        "clarity": 50.0,
+        "instruction_following": 60,
+        "hallucination_risk": 47.65,
+        "composite": 33.79
+      },
+      "response_length": 7,
+      "ideal_length": 42
+    },
+    {
+      "task_id": "factuality_006",
+      "category": "factuality",
+      "difficulty": "medium",
+      "scores": {
+        "correctness": 28.2,
+        "reasoning": 20.0,
+        "clarity": 65,
+        "instruction_following": 60,
+        "hallucination_risk": 40.0,
+        "composite": 41.62
+      },
+      "response_length": 19,
+      "ideal_length": 70
+    },
+    {
+      "task_id": "factuality_007",
+      "category": "factuality",
+      "difficulty": "medium",
+      "scores": {
+        "correctness": 15.61,
+        "reasoning": 12.0,
+        "clarity": 80,
+        "instruction_following": 60,
+        "hallucination_risk": 48.0,
+        "composite": 37.06
+      },
+      "response_length": 22,
+      "ideal_length": 78
+    },
+    {
+      "task_id": "factuality_008",
+      "category": "factuality",
+      "difficulty": "easy",
+      "scores": {
+        "correctness": 18.51,
+        "reasoning": 13.33,
+        "clarity": 65,
+        "instruction_following": 60,
+        "hallucination_risk": 46.67,
+        "composite": 36.23
+      },
+      "response_length": 13,
+      "ideal_length": 68
+    },
+    {
+      "task_id": "summarization_001",
+      "category": "summarization",
+      "difficulty": "easy",
+      "scores": {
+        "correctness": 18.52,
+        "reasoning": 15.29,
+        "clarity": 80,
+        "instruction_following": 60,
+        "hallucination_risk": 44.71,
+        "composite": 39.07
+      },
+      "response_length": 24,
+      "ideal_length": 42
+    },
+    {
+      "task_id": "summarization_002",
+      "category": "summarization",
+      "difficulty": "easy",
+      "scores": {
+        "correctness": 22.07,
+        "reasoning": 18.62,
+        "clarity": 65,
+        "instruction_following": 60,
+        "hallucination_risk": 41.38,
+        "composite": 39.06
+      },
+      "response_length": 16,
+      "ideal_length": 26
+    },
+    {
+      "task_id": "summarization_003",
+      "category": "summarization",
+      "difficulty": "medium",
+      "scores": {
+        "correctness": 14.43,
+        "reasoning": 12.31,
+        "clarity": 80,
+        "instruction_following": 60,
+        "hallucination_risk": 47.69,
+        "composite": 36.74
+      },
+      "response_length": 21,
+      "ideal_length": 84
+    },
+    {
+      "task_id": "summarization_004",
+      "category": "summarization",
+      "difficulty": "medium",
+      "scores": {
+        "correctness": 29.56,
+        "reasoning": 20.43,
+        "clarity": 48.0,
+        "instruction_following": 60,
+        "hallucination_risk": 39.57,
+        "composite": 39.67
+      },
+      "response_length": 17,
+      "ideal_length": 48
+    },
+    {
+      "task_id": "summarization_005",
+      "category": "summarization",
+      "difficulty": "easy",
+      "scores": {
+        "correctness": 20.58,
+        "reasoning": 17.39,
+        "clarity": 66.5,
+        "instruction_following": 60,
+        "hallucination_risk": 42.61,
+        "composite": 38.39
+      },
+      "response_length": 26,
+      "ideal_length": 83
+    },
+    {
+      "task_id": "summarization_006",
+      "category": "summarization",
+      "difficulty": "easy",
+      "scores": {
+        "correctness": 11.43,
+        "reasoning": 10.53,
+        "clarity": 50.0,
+        "instruction_following": 60,
+        "hallucination_risk": 49.47,
+        "composite": 30.66
+      },
+      "response_length": 14,
+      "ideal_length": 72
+    },
+    {
+      "task_id": "summarization_007",
+      "category": "summarization",
+      "difficulty": "easy",
+      "scores": {
+        "correctness": 11.87,
+        "reasoning": 11.11,
+        "clarity": 80,
+        "instruction_following": 60,
+        "hallucination_risk": 48.89,
+        "composite": 35.49
+      },
+      "response_length": 20,
+      "ideal_length": 95
+    },
+    {
+      "task_id": "summarization_008",
+      "category": "summarization",
+      "difficulty": "medium",
+      "scores": {
+        "correctness": 18.0,
+        "reasoning": 14.18,
+        "clarity": 65,
+        "instruction_following": 60,
+        "hallucination_risk": 45.82,
+        "composite": 36.3
+      },
+      "response_length": 19,
+      "ideal_length": 50
+    },
+    {
+      "task_id": "instruction_following_001",
+      "category": "instruction_following",
+      "difficulty": "easy",
+      "scores": {
+        "correctness": 100.0,
+        "reasoning": 60.0,
+        "clarity": 55,
+        "instruction_following": 75,
+        "hallucination_risk": 0.0,
+        "composite": 80.25
+      },
+      "response_length": 15,
+      "ideal_length": 15
+    },
+    {
+      "task_id": "instruction_following_002",
+      "category": "instruction_following",
+      "difficulty": "easy",
+      "scores": {
+        "correctness": 70.54,
+        "reasoning": 50.77,
+        "clarity": 65,
+        "instruction_following": 80,
+        "hallucination_risk": 9.23,
+        "composite": 69.67
+      },
+      "response_length": 11,
+      "ideal_length": 14
+    },
+    {
+      "task_id": "instruction_following_003",
+      "category": "instruction_following",
+      "difficulty": "easy",
+      "scores": {
+        "correctness": 25.24,
+        "reasoning": 19.35,
+        "clarity": 47.0,
+        "instruction_following": 65,
+        "hallucination_risk": 40.65,
+        "composite": 38.69
+      },
+      "response_length": 15,
+      "ideal_length": 37
+    },
+    {
+      "task_id": "instruction_following_004",
+      "category": "instruction_following",
+      "difficulty": "medium",
+      "scores": {
+        "correctness": 41.1,
+        "reasoning": 28.75,
+        "clarity": 67.0,
+        "instruction_following": 60,
+        "hallucination_risk": 31.25,
+        "composite": 49.06
+      },
+      "response_length": 25,
+      "ideal_length": 55
+    },
+    {
+      "task_id": "instruction_following_005",
+      "category": "instruction_following",
+      "difficulty": "easy",
+      "scores": {
+        "correctness": 32.6,
+        "reasoning": 31.42,
+        "clarity": 65.0,
+        "instruction_following": 65,
+        "hallucination_risk": 34.58,
+        "composite": 46.99
+      },
+      "response_length": 35,
+      "ideal_length": 78
+    },
+    {
+      "task_id": "instruction_following_006",
+      "category": "instruction_following",
+      "difficulty": "hard",
+      "scores": {
+        "correctness": 55.96,
+        "reasoning": 41.25,
+        "clarity": 68.75,
+        "instruction_following": 50,
+        "hallucination_risk": 18.75,
+        "composite": 56.27
+      },
+      "response_length": 38,
+      "ideal_length": 49
+    },
+    {
+      "task_id": "instruction_following_007",
+      "category": "instruction_following",
+      "difficulty": "medium",
+      "scores": {
+        "correctness": 13.97,
+        "reasoning": 12.0,
+        "clarity": 65.38,
+        "instruction_following": 60,
+        "hallucination_risk": 48.0,
+        "composite": 34.3
+      },
+      "response_length": 29,
+      "ideal_length": 87
+    },
+    {
+      "task_id": "instruction_following_008",
+      "category": "instruction_following",
+      "difficulty": "easy",
+      "scores": {
+        "correctness": 100.0,
+        "reasoning": 60.0,
+        "clarity": 60,
+        "instruction_following": 75,
+        "hallucination_risk": 0.0,
+        "composite": 81.0
+      },
+      "response_length": 40,
+      "ideal_length": 40
+    }
+  ]
+}
