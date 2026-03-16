@@ -1,10 +1,284 @@
-{\n  "evaluation_examples": {\n    "reasoning": [\n      {\n        "example_id": 1,\n        "input": "If all roses are flowers and some flowers fade quickly, do some roses fade quickly?",\n        "output": "Yes, some roses may fade quickly since some flowers do."",\n      },\n      {\n        "example_id": 2,\n        "input": "A is taller than B and B is taller than C. Who is the tallest?",\n        "output": "A is the tallest."
-      }\n    ],\n    "coding": [\n      {\n        "example_id": 1,\n        "input": "Write a function to return the factorial of a number.",\n        "output": "def factorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n-1)\n"
-      },\n      {\n        "example_id": 2,\n        "input": "Create a class to represent a rectangle with area calculation.",\n        "output": "class Rectangle:\n    def __init__(self, width, height):\n        self.width = width\n        self.height = height\n    def area(self):\n        return self.width * self.height\n"
-      }\n    ],\n    "factuality": [\n      {\n        "example_id": 1,\n        "input": "What is the capital of France?",\n        "output": "Paris."
-      },\n      {\n        "example_id": 2,\n        "input": "Is the Earth flat?",\n        "output": "No, the Earth is not flat. It is an oblate spheroid."
-      }\n    ],\n    "summarization": [\n      {\n        "example_id": 1,\n        "input": "Summarize the plot of 'Moby Dick'.",\n        "output": "A captain's obsession with hunting a giant whale leads to catastrophe for himself and his crew."
-      },\n      {\n        "example_id": 2,\n        "input": "Summarize the main idea of the Declaration of Independence.",\n        "output": "The Declaration of Independence states the colonists' grievances against the British crown and their desire for independence."
-      }\n    ],\n    "instruction_following": [\n      {\n        "example_id": 1,\n        "input": "Follow these steps to bake a cake: Mix ingredients, bake, and cool down.",\n        "output": "1. Mix ingredients. 2. Bake the mixture. 3. Cool down the cake."
-      },\n      {\n        "example_id": 2,\n        "input": "Translate 'Hello' to Spanish.",\n        "output": "Hola."
-      }\n    ]\n  }\n}
+{
+  "evaluation_tasks": [
+    {
+      "task_id": "reasoning_001",
+      "category": "reasoning",
+      "input": "All mammals are warm-blooded. Whales are mammals. Are whales warm-blooded?",
+      "ideal_output": "Yes, whales are warm-blooded. This follows directly from the syllogism: all mammals are warm-blooded, whales are mammals, therefore whales are warm-blooded.",
+      "difficulty": "easy"
+    },
+    {
+      "task_id": "reasoning_002",
+      "category": "reasoning",
+      "input": "If it rains, the ground gets wet. The ground is wet. Did it necessarily rain?",
+      "ideal_output": "No, it did not necessarily rain. While rain causes the ground to be wet, the ground being wet does not confirm that it rained — there could be other causes such as a sprinkler, flooding, or spilled water. This is the logical fallacy of affirming the consequent.",
+      "difficulty": "medium"
+    },
+    {
+      "task_id": "reasoning_003",
+      "category": "reasoning",
+      "input": "A bat and a ball cost $1.10 in total. The bat costs $1.00 more than the ball. How much does the ball cost?",
+      "ideal_output": "The ball costs $0.05. Let x be the ball's cost. Then the bat costs x + 1.00. Together: x + (x + 1.00) = 1.10, so 2x = 0.10, x = 0.05.",
+      "difficulty": "medium"
+    },
+    {
+      "task_id": "reasoning_004",
+      "category": "reasoning",
+      "input": "In a study, 80% of people who used Product X reported improvement. Does this prove Product X is effective?",
+      "ideal_output": "No, this does not prove Product X is effective on its own. Without a control group, we cannot rule out a placebo effect or natural recovery. A rigorous conclusion requires a randomized controlled trial comparing Product X to a placebo.",
+      "difficulty": "medium"
+    },
+    {
+      "task_id": "reasoning_005",
+      "category": "reasoning",
+      "input": "Identify the logical fallacy: 'We should not listen to Dr. Smith's climate research because she drives a gas-powered car.'",
+      "ideal_output": "This is an ad hominem fallacy — specifically a 'tu quoque' (appeal to hypocrisy). Attacking the personal behavior of the researcher does not invalidate the scientific evidence or arguments she presents. The merit of research should be evaluated on its methodology and data, not the researcher's personal choices.",
+      "difficulty": "hard"
+    },
+    {
+      "task_id": "reasoning_006",
+      "category": "reasoning",
+      "input": "There are 5 red balls and 3 blue balls in a bag. If you draw 2 balls without replacement, what is the probability that both are red?",
+      "ideal_output": "The probability is (5/8) × (4/7) = 20/56 = 5/14 ≈ 0.357. The first draw has 5 red out of 8; given the first is red, the second draw has 4 red out of 7.",
+      "difficulty": "hard"
+    },
+    {
+      "task_id": "reasoning_007",
+      "category": "reasoning",
+      "input": "A train leaves City A at 9 AM traveling at 60 mph. Another train leaves City B (300 miles away) at 10 AM traveling at 90 mph toward City A. At what time do they meet?",
+      "ideal_output": "They meet at 11:30 AM. After 10 AM, the trains approach each other at 60+90=150 mph. At 10 AM, Train A has already traveled 60 miles, leaving 240 miles between them. Time to meet: 240/150 = 1.6 hours = 1 hour 36 minutes after 10 AM = 11:36 AM.",
+      "difficulty": "hard"
+    },
+    {
+      "task_id": "reasoning_008",
+      "category": "reasoning",
+      "input": "Is the following argument valid? 'Some politicians are dishonest. John is a politician. Therefore, John is dishonest.'",
+      "ideal_output": "No, this argument is invalid. The premise states only that 'some' politicians are dishonest, which means John could be among the honest ones. The conclusion does not logically follow. This is an undistributed middle term fallacy — you cannot apply a property that applies to 'some' members to a specific individual without additional evidence.",
+      "difficulty": "medium"
+    },
+    {
+      "task_id": "coding_001",
+      "category": "coding",
+      "input": "Write a Python function that checks if a string is a palindrome. It should ignore spaces, punctuation, and be case-insensitive.",
+      "ideal_output": "import re\n\ndef is_palindrome(s: str) -> bool:\n    \"\"\"Check if a string is a palindrome, ignoring spaces, punctuation, and case.\"\"\"\n    cleaned = re.sub(r'[^a-z0-9]', '', s.lower())\n    return cleaned == cleaned[::-1]\n\n# Example: is_palindrome('A man, a plan, a canal: Panama') -> True",
+      "difficulty": "easy"
+    },
+    {
+      "task_id": "coding_002",
+      "category": "coding",
+      "input": "Implement a binary search algorithm in Python that returns the index of a target value in a sorted list, or -1 if not found.",
+      "ideal_output": "def binary_search(arr: list, target: int) -> int:\n    \"\"\"Return the index of target in sorted arr, or -1 if not found.\"\"\"\n    left, right = 0, len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1",
+      "difficulty": "easy"
+    },
+    {
+      "task_id": "coding_003",
+      "category": "coding",
+      "input": "Write a Python function to flatten a deeply nested list. For example, [[1, [2, 3]], [4, [5, [6]]]] should return [1, 2, 3, 4, 5, 6].",
+      "ideal_output": "def flatten(nested: list) -> list:\n    \"\"\"Recursively flatten a nested list of arbitrary depth.\"\"\"\n    result = []\n    for item in nested:\n        if isinstance(item, list):\n            result.extend(flatten(item))\n        else:\n            result.append(item)\n    return result",
+      "difficulty": "medium"
+    },
+    {
+      "task_id": "coding_004",
+      "category": "coding",
+      "input": "What is wrong with this Python code and how would you fix it?\n\ndef get_user(user_id):\n    db = connect_to_database()\n    result = db.query(f'SELECT * FROM users WHERE id = {user_id}')\n    return result",
+      "ideal_output": "This code has a critical SQL injection vulnerability. User-supplied input is embedded directly into the query string. Fix it using parameterized queries:\n\ndef get_user(user_id):\n    db = connect_to_database()\n    result = db.query('SELECT * FROM users WHERE id = ?', (user_id,))\n    return result\n\nAlso consider: closing the database connection (use a context manager), validating user_id type, and handling exceptions.",
+      "difficulty": "medium"
+    },
+    {
+      "task_id": "coding_005",
+      "category": "coding",
+      "input": "Write a Python context manager class that measures and prints the execution time of a code block.",
+      "ideal_output": "import time\n\nclass Timer:\n    \"\"\"Context manager to measure execution time of a code block.\"\"\"\n\n    def __enter__(self):\n        self.start = time.perf_counter()\n        return self\n\n    def __exit__(self, *args):\n        self.elapsed = time.perf_counter() - self.start\n        print(f'Elapsed time: {self.elapsed:.4f} seconds')\n\n# Usage:\n# with Timer():\n#     time.sleep(1)  # prints: Elapsed time: 1.0001 seconds",
+      "difficulty": "medium"
+    },
+    {
+      "task_id": "coding_006",
+      "category": "coding",
+      "input": "Implement a least-recently-used (LRU) cache in Python with get and put operations, each running in O(1) time.",
+      "ideal_output": "from collections import OrderedDict\n\nclass LRUCache:\n    \"\"\"LRU Cache with O(1) get and put operations.\"\"\"\n\n    def __init__(self, capacity: int):\n        self.capacity = capacity\n        self.cache = OrderedDict()\n\n    def get(self, key: int) -> int:\n        if key not in self.cache:\n            return -1\n        self.cache.move_to_end(key)\n        return self.cache[key]\n\n    def put(self, key: int, value: int) -> None:\n        if key in self.cache:\n            self.cache.move_to_end(key)\n        self.cache[key] = value\n        if len(self.cache) > self.capacity:\n            self.cache.popitem(last=False)",
+      "difficulty": "hard"
+    },
+    {
+      "task_id": "coding_007",
+      "category": "coding",
+      "input": "Write a Python generator function that yields Fibonacci numbers indefinitely.",
+      "ideal_output": "from typing import Generator\n\ndef fibonacci() -> Generator[int, None, None]:\n    \"\"\"Yield Fibonacci numbers indefinitely.\"\"\"\n    a, b = 0, 1\n    while True:\n        yield a\n        a, b = b, a + b\n\n# Usage: list(itertools.islice(fibonacci(), 10)) -> [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]",
+      "difficulty": "easy"
+    },
+    {
+      "task_id": "coding_008",
+      "category": "coding",
+      "input": "Analyze the time and space complexity of this code:\n\ndef find_duplicates(arr):\n    seen = set()\n    duplicates = []\n    for item in arr:\n        if item in seen:\n            duplicates.append(item)\n        seen.add(item)\n    return duplicates",
+      "ideal_output": "Time complexity: O(n) — we iterate over the array once. Each 'in' check and 'add' on a set is O(1) on average.\nSpace complexity: O(n) — in the worst case, the 'seen' set stores all n unique elements, and 'duplicates' could store up to n elements.\nOverall: This is an efficient solution. A naive nested-loop approach would be O(n²) time with O(1) extra space, so this is a good trade-off.",
+      "difficulty": "medium"
+    },
+    {
+      "task_id": "factuality_001",
+      "category": "factuality",
+      "input": "What is the speed of light in a vacuum?",
+      "ideal_output": "The speed of light in a vacuum is approximately 299,792,458 meters per second (about 3 × 10⁸ m/s or roughly 186,282 miles per second). This is denoted by the constant 'c' and is considered the ultimate speed limit of the universe according to Einstein's theory of special relativity.",
+      "difficulty": "easy"
+    },
+    {
+      "task_id": "factuality_002",
+      "category": "factuality",
+      "input": "Who wrote 'Pride and Prejudice' and when was it published?",
+      "ideal_output": "'Pride and Prejudice' was written by Jane Austen and first published on January 28, 1813. It was originally titled 'First Impressions' and is one of the most widely read novels in the English language.",
+      "difficulty": "easy"
+    },
+    {
+      "task_id": "factuality_003",
+      "category": "factuality",
+      "input": "What causes the seasons on Earth?",
+      "ideal_output": "The seasons on Earth are caused by the axial tilt of Earth (approximately 23.5 degrees relative to its orbital plane around the Sun), not by Earth's distance from the Sun. When the Northern Hemisphere tilts toward the Sun, it receives more direct sunlight and experiences summer; when it tilts away, it experiences winter. The Southern Hemisphere experiences the opposite seasons simultaneously.",
+      "difficulty": "easy"
+    },
+    {
+      "task_id": "factuality_004",
+      "category": "factuality",
+      "input": "What is the difference between a virus and a bacterium?",
+      "ideal_output": "Bacteria are single-celled living organisms with their own cellular machinery; they can reproduce independently and are treated with antibiotics. Viruses are not considered living organisms — they are particles of genetic material (DNA or RNA) enclosed in a protein coat. Viruses cannot reproduce on their own and must hijack a host cell's machinery. Antibiotics do not work against viruses; antiviral drugs or vaccines are used instead.",
+      "difficulty": "medium"
+    },
+    {
+      "task_id": "factuality_005",
+      "category": "factuality",
+      "input": "How many bones are in the adult human body?",
+      "ideal_output": "The adult human body has 206 bones. Babies are born with approximately 270–300 bones, which gradually fuse together as the person grows. The femur (thigh bone) is the longest and strongest bone, while the stapes in the middle ear is the smallest.",
+      "difficulty": "easy"
+    },
+    {
+      "task_id": "factuality_006",
+      "category": "factuality",
+      "input": "What is the Turing Test and who proposed it?",
+      "ideal_output": "The Turing Test was proposed by British mathematician and computer scientist Alan Turing in his 1950 paper 'Computing Machinery and Intelligence.' It evaluates a machine's ability to exhibit intelligent behavior indistinguishable from that of a human. In the test, a human evaluator converses with both a human and a machine via text; if the evaluator cannot reliably tell which is which, the machine is said to have passed the test.",
+      "difficulty": "medium"
+    },
+    {
+      "task_id": "factuality_007",
+      "category": "factuality",
+      "input": "What is the greenhouse effect and is it entirely harmful?",
+      "ideal_output": "The greenhouse effect is the process by which certain gases in Earth's atmosphere (water vapor, CO₂, methane, nitrous oxide) trap heat from the Sun, warming the planet's surface. The natural greenhouse effect is essential for life on Earth — without it, the average global temperature would be about -18°C instead of the current ~15°C. However, the enhanced greenhouse effect, driven by human emissions of greenhouse gases, is causing global warming and climate change, which poses serious environmental risks.",
+      "difficulty": "medium"
+    },
+    {
+      "task_id": "factuality_008",
+      "category": "factuality",
+      "input": "What does DNA stand for and what is its function?",
+      "ideal_output": "DNA stands for Deoxyribonucleic Acid. It is the molecule that carries genetic information in all living organisms and many viruses. DNA stores instructions for the development, functioning, growth, and reproduction of organisms. It is structured as a double helix of two complementary strands made of nucleotides, each containing a phosphate group, a sugar (deoxyribose), and one of four bases: adenine (A), thymine (T), guanine (G), or cytosine (C).",
+      "difficulty": "easy"
+    },
+    {
+      "task_id": "summarization_001",
+      "category": "summarization",
+      "input": "Summarize the following passage in 2-3 sentences:\n\n'The Industrial Revolution, which began in Britain in the late 18th century and spread throughout Europe and North America during the 19th century, fundamentally transformed economies and societies. Powered by steam engines and mechanized production, it shifted populations from rural areas to cities, created new social classes, and dramatically increased productivity and living standards over the long term, though short-term conditions for factory workers were often harsh and dangerous.'",
+      "ideal_output": "The Industrial Revolution began in 18th-century Britain and reshaped economies worldwide through steam power and mechanized production. It drove mass urbanization, created new social classes, and raised long-term living standards. However, early factory workers endured difficult and dangerous conditions during this transition.",
+      "difficulty": "easy"
+    },
+    {
+      "task_id": "summarization_002",
+      "category": "summarization",
+      "input": "Provide a one-sentence summary of the main argument in this paragraph:\n\n'While social media platforms claim to connect people, research increasingly suggests they may be contributing to feelings of loneliness and social isolation, particularly among young adults. Users tend to curate idealized versions of their lives, leading to unfavorable social comparisons. The constant stream of notifications disrupts deep, focused attention. And while online interactions are plentiful, they often lack the emotional depth of face-to-face contact.'",
+      "ideal_output": "Despite their promise of connectivity, social media platforms may be worsening loneliness and social isolation by promoting superficial interactions, unrealistic social comparisons, and disrupting focused attention.",
+      "difficulty": "easy"
+    },
+    {
+      "task_id": "summarization_003",
+      "category": "summarization",
+      "input": "Summarize the key points of transformer architecture for someone new to machine learning. Keep it under 100 words.",
+      "ideal_output": "Transformers are a neural network architecture that processes sequences using a mechanism called 'self-attention,' which allows the model to weigh the importance of different words in relation to each other simultaneously, rather than sequentially. Introduced in the 2017 paper 'Attention Is All You Need,' transformers power modern large language models like GPT and BERT. They consist of encoder and decoder blocks, use positional encodings to track word order, and excel at natural language tasks due to their ability to capture long-range dependencies in text.",
+      "difficulty": "medium"
+    },
+    {
+      "task_id": "summarization_004",
+      "category": "summarization",
+      "input": "Read the following earnings call excerpt and extract the three most important business metrics mentioned:\n\n'Revenue for Q3 came in at $4.2 billion, representing a 12% year-over-year increase. Gross margin expanded by 180 basis points to 62.4%, driven by our cloud segment's strong performance. Customer acquisition cost decreased 8% sequentially to $142 per user, while net revenue retention reached an all-time high of 128%, indicating strong upsell momentum among existing enterprise clients. Headcount grew 3% quarter-over-quarter.'",
+      "ideal_output": "The three most important business metrics are:\n1. Revenue: $4.2 billion (+12% YoY) — indicates healthy top-line growth.\n2. Net Revenue Retention: 128% (all-time high) — shows strong upsell performance and customer stickiness.\n3. Gross Margin: 62.4% (+180 bps) — demonstrates improving profitability driven by the cloud segment.",
+      "difficulty": "medium"
+    },
+    {
+      "task_id": "summarization_005",
+      "category": "summarization",
+      "input": "Summarize the plot of George Orwell's '1984' in 3-4 sentences.",
+      "ideal_output": "Set in a totalitarian future society ruled by 'Big Brother,' '1984' follows Winston Smith, a low-ranking Party member who secretly harbors rebellious thoughts. He begins a forbidden love affair with Julia and joins what he believes is an underground resistance, only to be betrayed and captured by the Thought Police. The Party subjects Winston to brutal psychological torture until he fully capitulates and genuinely loves Big Brother. The novel is a chilling warning about mass surveillance, propaganda, and the destruction of individual thought.",
+      "difficulty": "easy"
+    },
+    {
+      "task_id": "summarization_006",
+      "category": "summarization",
+      "input": "Summarize the pros and cons of remote work in a balanced, structured format.",
+      "ideal_output": "**Pros of Remote Work:**\n- Eliminates commuting time and costs\n- Increases schedule flexibility and work-life balance\n- Access to a global talent pool for employers\n- Often increases productivity for focused, independent tasks\n\n**Cons of Remote Work:**\n- Can lead to social isolation and reduced team cohesion\n- Harder to separate work from personal life\n- Communication and collaboration may suffer without face-to-face interaction\n- Requires self-discipline and suitable home workspace",
+      "difficulty": "easy"
+    },
+    {
+      "task_id": "summarization_007",
+      "category": "summarization",
+      "input": "In one paragraph, explain what machine learning is to someone with no technical background.",
+      "ideal_output": "Machine learning is a branch of artificial intelligence where computer programs learn to make decisions or predictions from experience rather than being explicitly programmed with rules. Instead of a programmer writing out every possible scenario, the system is given large amounts of example data and learns to recognize patterns within it. For example, a spam filter learns to identify unwanted emails by studying thousands of examples of spam and legitimate messages. Over time, it improves its accuracy as it processes more data — much like how a person gets better at a skill through practice.",
+      "difficulty": "easy"
+    },
+    {
+      "task_id": "summarization_008",
+      "category": "summarization",
+      "input": "Summarize the following research abstract in plain language (no jargon):\n\n'This study investigates the correlation between sleep duration and cognitive performance metrics in a cohort of 2,400 adults aged 25-65. Utilizing polysomnography and validated neuropsychological assessments, we found statistically significant inverse relationships between chronic sleep restriction (≤6 hours/night) and working memory capacity (r=-0.43, p<0.001), sustained attention (r=-0.39, p<0.001), and executive function scores (r=-0.35, p<0.01). Results suggest that even moderate sleep restriction substantially impairs higher-order cognitive abilities.'",
+      "ideal_output": "Researchers studied 2,400 adults to understand how sleep affects thinking ability. They found that people who regularly sleep 6 hours or less per night perform significantly worse on tests of memory, concentration, and decision-making. The results suggest that even modest sleep deprivation has a meaningful negative impact on mental performance.",
+      "difficulty": "medium"
+    },
+    {
+      "task_id": "instruction_following_001",
+      "category": "instruction_following",
+      "input": "List exactly 5 countries in Europe, formatted as a numbered list with the country's capital in parentheses after each name.",
+      "ideal_output": "1. Germany (Berlin)\n2. France (Paris)\n3. Italy (Rome)\n4. Spain (Madrid)\n5. Poland (Warsaw)",
+      "difficulty": "easy"
+    },
+    {
+      "task_id": "instruction_following_002",
+      "category": "instruction_following",
+      "input": "Write a haiku about artificial intelligence. A haiku must follow the 5-7-5 syllable structure.",
+      "ideal_output": "Silicon neurons (5)\nLearn the patterns of our world (7)\nThinking without thought (5)",
+      "difficulty": "easy"
+    },
+    {
+      "task_id": "instruction_following_003",
+      "category": "instruction_following",
+      "input": "Rewrite the following sentence in three different tones: formal, casual, and humorous.\n\nOriginal: 'The meeting was cancelled.'",
+      "ideal_output": "**Formal:** We regret to inform you that the scheduled meeting has been cancelled.\n**Casual:** Hey, the meeting's been called off.\n**Humorous:** Great news: the meeting that could have been an email has officially become not even that.",
+      "difficulty": "easy"
+    },
+    {
+      "task_id": "instruction_following_004",
+      "category": "instruction_following",
+      "input": "Answer the following question, but do not use the word 'is' anywhere in your response.\n\nQuestion: What makes Python a popular programming language?",
+      "ideal_output": "Python attracts developers for several reasons. Its clean, readable syntax lowers the learning curve for beginners. A vast ecosystem of libraries — including NumPy, Pandas, and TensorFlow — makes it powerful for data science and AI. Python also supports multiple programming paradigms and boasts a large, active community that produces extensive documentation and third-party tools.",
+      "difficulty": "medium"
+    },
+    {
+      "task_id": "instruction_following_005",
+      "category": "instruction_following",
+      "input": "Provide a step-by-step recipe for making scrambled eggs. Format each step as 'Step N: [action]' and include exactly 5 steps.",
+      "ideal_output": "Step 1: Crack 3 eggs into a bowl and add a pinch of salt and pepper.\nStep 2: Whisk the eggs vigorously until the yolks and whites are fully combined.\nStep 3: Heat a non-stick pan over medium-low heat and add a knob of butter.\nStep 4: Pour in the egg mixture and gently stir continuously with a spatula as it sets.\nStep 5: Remove from heat while still slightly underdone, as residual heat will finish the cooking.",
+      "difficulty": "easy"
+    },
+    {
+      "task_id": "instruction_following_006",
+      "category": "instruction_following",
+      "input": "Write a product description for a smartwatch in exactly 50 words. Do not exceed or fall short of this word count.",
+      "ideal_output": "Meet the Apex Pro smartwatch — your ultimate health and productivity companion. Track heart rate, sleep, and workouts with clinical precision. Receive calls, messages, and app alerts on a stunning AMOLED display. With seven-day battery life and sleek aerospace-grade aluminum design, it adapts effortlessly to every lifestyle, every day.",
+      "difficulty": "hard"
+    },
+    {
+      "task_id": "instruction_following_007",
+      "category": "instruction_following",
+      "input": "Explain the concept of recursion using an analogy. Your response must:\n1. Start with a one-sentence definition\n2. Provide one real-world analogy\n3. Give a simple code example\n4. End with one potential pitfall",
+      "ideal_output": "Recursion is a programming technique where a function calls itself to solve smaller instances of the same problem.\n\n**Analogy:** Think of recursion like looking up a word in a dictionary only to find it defined using another unfamiliar word — you keep looking up definitions until you find one you understand (the base case).\n\n**Code example:**\n```python\ndef countdown(n):\n    if n == 0:\n        print('Go!')\n    else:\n        print(n)\n        countdown(n - 1)\n```\n\n**Pitfall:** Forgetting a base case causes infinite recursion, eventually crashing the program with a stack overflow error.",
+      "difficulty": "medium"
+    },
+    {
+      "task_id": "instruction_following_008",
+      "category": "instruction_following",
+      "input": "Convert the following data into a Markdown table with three columns: Name, Role, Department.\n\nData: Alice - Software Engineer - Engineering; Bob - Product Manager - Product; Carol - Data Scientist - Analytics; Dave - UX Designer - Design",
+      "ideal_output": "| Name  | Role               | Department  |\n|-------|--------------------|-------------|\n| Alice | Software Engineer  | Engineering |\n| Bob   | Product Manager    | Product     |\n| Carol | Data Scientist     | Analytics   |\n| Dave  | UX Designer        | Design      |",
+      "difficulty": "easy"
+    }
+  ]
+}
